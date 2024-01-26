@@ -55,19 +55,24 @@ server <- function(input, output) {
   
   # render penguin histogram ----
   output$flipper_length_histogram_output <- renderPlot(
-    ggplot(na.omit(island_df()),
-           aes(x = flipper_length_mm, 
-               fill = species)) +
-      geom_histogram(alpha = 0.6, 
-                     position = "identity",
-                     bins = input$bin_num_input) +                 # update number of bins depending on user input
-      scale_fill_manual(values = c("Adelie" = "#FEA346",
-                                   "Chinstrap" = "#B251F1",
-                                   "Gentoo" = "#4BA4A4")) +
-      labs(x = "Flipper length (mm)",
-           y = "Frequency",
-           fill = "Penguin species") +
-      myCustomTheme()
+    {
+      ggplot(na.omit(island_df()),
+             aes(x = flipper_length_mm, 
+                 fill = species)) +
+        geom_histogram(alpha = 0.6, 
+                       position = "identity",
+                       bins = input$bin_num_input) +                 # update number of bins depending on user input
+        scale_fill_manual(values = c("Adelie" = "#FEA346",
+                                     "Chinstrap" = "#B251F1",
+                                     "Gentoo" = "#4BA4A4")) +
+        labs(x = "Flipper length (mm)",
+             y = "Frequency",
+             fill = "Penguin species") +
+        myCustomTheme()
+    },
+    
+    # add alt. text
+    alt = "This is my alt text and it's incomplete at the moment. Will improve later"
   )
 }
 

@@ -66,8 +66,10 @@ ui <- navbarPage(
                         mainPanel(
                           
                           # trout scatterplot output ----
-                          plotOutput(outputId = "trout_scatterplot_output") # END trout outputplot
-                          
+                          plotOutput(outputId = "trout_scatterplot_output") %>%  # END trout outputplot
+                            withSpinner(color = 'cyan4',
+                                        type = 1,
+                                        size = 2)
                         ) # END trout mainPanel
                         
                       ) # END trout sidebarLayout
@@ -101,7 +103,7 @@ ui <- navbarPage(
                                       max = 100
                           ), # END sliderInput penguin
                           
-                         
+                          
                           
                         ), # END penguin sidebarPanel
                         
@@ -109,7 +111,10 @@ ui <- navbarPage(
                         mainPanel(
                           
                           # penguin histogram output ggplot
-                          plotOutput(outputId = "flipper_length_histogram_output")
+                          plotOutput(outputId = "flipper_length_histogram_output") %>% 
+                            withSpinner(color = 'plum',
+                                        type = 5,
+                                        size = 2)
                           
                         ) # END penguin mainPanel
                         
