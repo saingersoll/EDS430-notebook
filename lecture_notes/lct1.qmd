@@ -1,0 +1,19 @@
+---
+title: "Lecture 1 Notebook"
+author: "Sofia Ingersoll"
+date: 2024-01-24
+---
+```{r}
+install.packages(pkgs = c( "tidyverse", "shiny", "shinydashboard", "shinyWidgets", "shinycssloaders", "markdown", "DT", "leaflet", "bslib", "fresh", "sass", "reactlog", "shinytest2", "palmerpenguins", "lterdatasampler", "gapminder"))
+
+library(shiny)
+# run in console to see what valid examples are available to us
+# runExample(example = NA)
+# runExample('01_hello')  is a good quick easy way to access some code
+```
+
+```{r}
+# input / output functions
+url <- https://ucsb-meds.github.io/EDS-430-Intro-to-Shiny/course-materials/slides/part2.1-single-file-app-slides.html#/input-output-fxns
+```
+
