@@ -31,14 +31,29 @@ ui <- navbarPage(
                                       selected = c("cascade", "pool"),
                                       options = pickerOptions(actionsBox = TRUE),  # adds select all or deselect all option
                                       multiple = TRUE                              # allows users to select multiple options at once
-                                      ) # END channel type pickerInput
+                          ), # END channel type pickerInput
+                          
+                          # section checkboxGroupButtons ----
+                          checkboxGroupButtons(inputId = "section_input",
+                                               label = "Select sampling section(s):",
+                                               choices = c("clear cut forest", "old growth forest"),
+                                               selected = c("clear cut forest", "old growth forest"),
+                                               individual = FALSE,
+                                               justified = TRUE,                        # buttons same width as navbar
+                                               size = "sm",                             # small
+                                               checkIcon = list(yes = icon("check"),
+                                                                no = icon('xmark'))    # this is from fonawesome library online
+                          ) # END section inputButtons
+                          
+                          
                           
                         ), # END trout sidebarPanel
                         
                         # trout mainPanel ----
                         mainPanel(
                           
-                          "trout plot output goes here" # REPLACE THIS WITH CONTENT
+                          # trout scatterplot output ----
+                          plotOutput(outputId = "trout_scatterplot_output") # END trout outputplot
                           
                         ) # END trout mainPanel
                         
