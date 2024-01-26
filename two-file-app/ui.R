@@ -5,7 +5,20 @@ ui <- navbarPage(
   # (Page 1) intro tabPanel ----
   tabPanel(title = "About this App",
            
-           "background info will go here" # REPLACE THIS WITH CONTENT
+           # intro text fluidRow ----
+           fluidRow(
+             
+             # use columns to create white space on sides
+             column(1),
+             column(12, includeMarkdown("text/about.md")),
+             column(1)
+             
+           ), # END intro text fluidRow
+           
+           hr(), # creates light gray horizontal line
+           
+           # footer text ----
+           includeMarkdown("text/footer.md")
            
   ), # END (Page 1) intro tabPanel
   
@@ -38,7 +51,7 @@ ui <- navbarPage(
                                                label = "Select sampling section(s):",
                                                choices = c("clear cut forest", "old growth forest"),
                                                selected = c("clear cut forest", "old growth forest"),
-                                               individual = FALSE,
+                                               individual = FALSE,                      # 
                                                justified = TRUE,                        # buttons same width as navbar
                                                size = "sm",                             # small
                                                checkIcon = list(yes = icon("check"),
@@ -70,14 +83,33 @@ ui <- navbarPage(
                         # penguin sidebarPanel ----
                         sidebarPanel(
                           
-                          "penguin plot input(s) go here" # REPLACE THIS WITH CONTENT
+                          # pickerInput for islands 
+                          pickerInput(inputId = "penguin_island_input",
+                                      label = "Select island(s) of interest:",
+                                      choices = unique(penguins$island),
+                                      selected = unique(penguins$island),
+                                      options = pickerOptions(actionsBox = TRUE),
+                                      multiple = TRUE
+                          ), # END pickerInput penguins
+                          
+                          
+                          # bin number slider input penguin ----
+                          sliderInput(inputId = "bin_num_input",
+                                      label = "Select number of bins:",
+                                      value = 25,
+                                      min = 1,
+                                      max = 100
+                          ), # END sliderInput penguin
+                          
+                         
                           
                         ), # END penguin sidebarPanel
                         
                         # penguin mainPanel ----
                         mainPanel(
                           
-                          "penguin plot output goes here" # REPLACE THIS WITH CONTENT
+                          # penguin histogram output ggplot
+                          plotOutput(outputId = "flipper_length_histogram_output")
                           
                         ) # END penguin mainPanel
                         
