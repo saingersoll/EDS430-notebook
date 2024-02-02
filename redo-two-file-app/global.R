@@ -5,6 +5,16 @@ library(palmerpenguins)
 library(tidyverse)
 library(shinyWidgets)
 library(markdown)
+library(shinycssloaders)
+library(sass)
+
+
+# compile css
+sass(
+  input = sass_file('redo-two-file-app/www/sass-styles.scss'),
+  output = 'www/sass-styles.css',
+  options = sass_options(output_style = 'compressed')
+)
 
 # GGPLOT THEME ----
 myCustomTheme <- function() {

@@ -3,10 +3,22 @@ library(shiny)
 library(DT)
 library(tidyverse)
 library(palmerpenguins)
+library(bslib)
+library(thematic)
+
+thematic::thematic_shiny()
 
 # user interface ----
 ui <- fluidPage(
   
+  # set theme argument ----
+  theme = bs_theme(
+    
+    bg = "#a36F6F",
+    fg = "#FDF7F7",
+    primary = '#483132',
+    base_font = font_google('Sixtyfour')
+  ),
   
   # app title ----
   tags$h1("Palmer Penguins Interactive Dashboard"),
