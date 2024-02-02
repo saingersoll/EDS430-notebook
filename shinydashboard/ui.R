@@ -50,8 +50,19 @@ body <- dashboardBody(
         # NULL will make width take on size of column
         box(width = NULL,
             
-            "background info here"
-            
+            title = tagList(icon('water'),
+                            strong('Monitoring Fish Creek Watershed')),
+            includeMarkdown('text/intro.md'),
+            tags$img(src = 'FishCreekWatershedSiteMap_2020.jpg',
+                     alt = 'A map of Northern Alaska, showing Fish Creek Watershed, loaded within the National Petroleum Reserve.',
+                     style = "max-width: 100%;"),  # CSS declarations are done with a "property : amount;" this will fit our image nicely
+            tags$h6(
+              tags$em("Map Source:",               # this emphasis gives italicized 
+                      tags$a(href = 'http://www.fishcreekwatershed.org/',  # add hyperlink
+                             'FCWO')
+                      ),
+              style = "text-align: center;"        # center text
+            )
         ) # END background box ----
         
       ), # END column ----
@@ -68,7 +79,9 @@ body <- dashboardBody(
           box(
             width = NULL,
             
-            "citation here"
+            title = tagList(icon('book'),
+                            strong('Data Source')),
+            includeMarkdown('text/citation.md')
             
           ) # END citation box
           
@@ -82,7 +95,9 @@ body <- dashboardBody(
           box(
             width = NULL,
             
-            "disclaimer here"
+            title = tagList(icon('warning'),
+                            strong('Disclaimer')),
+            includeMarkdown('text/disclaimer.md')
             
           ) # END disclaimer box
           

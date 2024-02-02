@@ -4,6 +4,7 @@ library(shinydashboard)
 library(tidyverse)
 library(leaflet)
 library(shinycssloaders)
+library(markdown)
 
 # read in processed lake data ----
 # avoid using here inside of ur app, it doesn't always work
